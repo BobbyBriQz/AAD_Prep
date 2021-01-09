@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AAD_Prep</string>
+    <string name="show_snackbar">Show Snackbar</string>
+    <string name="show_notification">Show Notification</string>
+    <string name="update_notification">Update Notification</string>
+    <string name="cancel_current_notification">Cancel Current Notification</string>
 </resources>
