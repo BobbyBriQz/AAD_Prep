@@ -4,4 +4,7 @@
     <string name="show_notification">Show Notification</string>
     <string name="update_notification">Update Notification</string>
     <string name="cancel_current_notification">Cancel Current Notification</string>
+    <string name="go_to_github">Go to Github</string>
+    <string name="enter_repo_name">Enter Repo name</string>
+    <string name="search">Search</string>
 </resources>

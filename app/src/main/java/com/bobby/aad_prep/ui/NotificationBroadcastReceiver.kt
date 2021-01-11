@@ -1,4 +1,4 @@
-package com.bobby.aad_prep
+package com.bobby.aad_prep.ui
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,6 +11,7 @@ import android.graphics.Color
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import com.bobby.aad_prep.R
 
 class NotificationBroadcastReceiver : BroadcastReceiver(){
 

@@ -1,10 +1,8 @@
-package com.bobby.aad_prep
+package com.bobby.aad_prep.ui
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.BitmapFactory
@@ -12,8 +10,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
+import com.bobby.aad_prep.R
 import com.bobby.aad_prep.databinding.ActivityNotificationBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -32,9 +30,9 @@ class NotificationActivity : AppCompatActivity() {
     private lateinit var mNotificationManager: NotificationManager
     private val mNotificationReceiver = NotificationBroadcastReceiver()
     companion object{
-        public const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
-        public const val NOTIFICATION_ID = 0
-        public const val ACTION_UPDATE_NOTIFICATION = "com.bobby.aad_prep.ACTION_UPDATE_NOTIFICATION"
+        const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
+        const val NOTIFICATION_ID = 0
+        const val ACTION_UPDATE_NOTIFICATION = "com.bobby.aad_prep.ACTION_UPDATE_NOTIFICATION"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +50,7 @@ class NotificationActivity : AppCompatActivity() {
         setNotificationButtonState(isShown = true, isUpdated = false, isCancelled = false)
         mBinding.snackbarBtn.setOnClickListener{
             Snackbar.make(it, "SnackBar button works", Snackbar.LENGTH_INDEFINITE )
-                .setAction("Yaaayyy!!!", View.OnClickListener {})
+                .setAction("Yaaayyy!!!", {})
                 .show()
         }
 
@@ -69,6 +67,10 @@ class NotificationActivity : AppCompatActivity() {
         mBinding.cancelNotificationBtn.setOnClickListener {
             cancelNotification()
             setNotificationButtonState(isShown = true, isUpdated = false, isCancelled = false)
+        }
+
+        mBinding.gotoGithubBtn.setOnClickListener {
+            startActivity(Intent(this, GithubActivity::class.java))
         }
     }
 
@@ -117,7 +119,7 @@ class NotificationActivity : AppCompatActivity() {
 
             //Adding action that triggers broadcast receiver
             .addAction(
-                R.drawable.ic_action, //Image Assets> Action bar and tab icons
+                    R.drawable.ic_action, //Image Assets> Action bar and tab icons
                 "Update Notification",
                 PendingIntent.getBroadcast(
                     this,
